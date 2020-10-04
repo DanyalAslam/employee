@@ -7,7 +7,7 @@ import CreateEmployee from './screens/CreateEmployee';
 import EmployeeProfile from './screens/EmployeeProfile';
 import splash from './screens/splash'
 import SignupForm from './screens/SignupForm'
-
+import LoginForm from './screens/LoginForm'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -31,13 +31,15 @@ function App() {
         return (
             <View style={styles.parentContainer}>
                 <Stack.Navigator 
-                initialRouteName="SignupForm"
+                initialRouteName="splash"
                 >
                 <Stack.Screen name="Home"
                  component={Home}
                  options={headerObject}
                 />
                         <Stack.Screen name="SignupForm" component={SignupForm} options={headerObject} />
+                        <Stack.Screen name="LoginForm" component={LoginForm} options={headerObject} />
+                        <Stack.Screen name="LoginScreen" component={LoginScreen} options={headerObject} />
                 <Stack.Screen name="CreateEmployee" component={CreateEmployee} options={headerObject} />
    
                 <Stack.Screen name="splash" component={splash} options={headerObject} />

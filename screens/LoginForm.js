@@ -6,7 +6,7 @@ import { Input, Button } from '../Components/common'
 // import Header from './Header'
 import Toast from 'react-native-simple-toast';
 
-class SignupForm extends Component {
+class LoginForm extends Component {
     constructor(props) {
         super(props)
 
@@ -16,7 +16,6 @@ class SignupForm extends Component {
             Loading: false,
         }
     }
-
 
 
     onLoginPress = () => {
@@ -29,12 +28,9 @@ class SignupForm extends Component {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-
                 email: this.state.email,
                 password: this.state.password
             })
-
-
         })
             .then(updatedDate => {
                 Toast.show('Signup Successful');
@@ -71,7 +67,7 @@ class SignupForm extends Component {
             <View style={{ height: '20%', paddingHorizontal: 20 }}>
                 <View>
                     <Text style={{ fontSize: 20 }}>Proceed with your</Text>
-                    <Text style={{ fontStyle: 'bold' }}>Signup</Text>
+                    <Text style={{ fontStyle: 'bold' }}>Login</Text>
                 </View>
 
             </View>
@@ -105,13 +101,14 @@ class SignupForm extends Component {
                         />
                     </View>
                     <View>
-                        <Text style={{ fontSize: 15, color: 'white' }}>Signup</Text>
+                        <Text style={{ fontSize: 15, color: 'white' }}>Login</Text>
                     </View>
 
                 </TouchableOpacity>
 
 
                 }
+                
 
 
             
@@ -121,4 +118,4 @@ class SignupForm extends Component {
     }
 }
 
-export default SignupForm 
+export default LoginForm 
