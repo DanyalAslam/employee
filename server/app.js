@@ -51,6 +51,40 @@ app.post('/signup',(req,res) => {
     })
 })
 
+
+// https://www.youtube.com/watch?v=pzGQMwGmCnc
+app.post('/login',(req,res) => {
+    // const user = new Users({
+    //     email : req.body.email,
+    //     password : req.body.password
+    // })
+
+
+
+    Users.findOne({ email : req.body.email, password : req.body.password}, function(err,user){
+        if(err)
+        {
+            console.log('the error for login is :',err);
+        }
+
+        if (!user)
+        {
+            console.log('No user Found');
+        }
+
+    } )
+    .then(data =>{
+        console.log("the data we got is : ",data)
+        
+       
+    }).catch(err=>{
+        console.log('Not posted Data',err)
+    })
+})
+
+
+
+
 app.post('/send',(req,res)=>{
     
     const employee =new Employee({

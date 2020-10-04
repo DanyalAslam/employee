@@ -21,6 +21,7 @@ class SignupForm extends Component {
 
     onLoginPress = () => {
   
+        
         this.setState({ Loading: true })
 
         fetch("http://10.0.2.2:3000/signup", {
@@ -39,7 +40,7 @@ class SignupForm extends Component {
             .then(updatedDate => {
                 Toast.show('Signup Successful');
                 this.setState({ Loading: false })
-                props.navigation.navigate('LoginScreen')
+                this.props.navigation.navigate('splash')
             })
             .then(jsonResp => {
                 
@@ -71,7 +72,7 @@ class SignupForm extends Component {
             <View style={{ height: '20%', paddingHorizontal: 20 }}>
                 <View>
                     <Text style={{ fontSize: 20 }}>Proceed with your</Text>
-                    <Text style={{ fontStyle: 'bold' }}>Signup</Text>
+                    <Text style={{ fontWeight:'bold' }}>Signup</Text>
                 </View>
 
             </View>

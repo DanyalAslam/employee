@@ -19,11 +19,11 @@ class LoginForm extends Component {
 
 
     onLoginPress = () => {
-  
+  console.log('on login pressed');
         this.setState({ Loading: true })
 
-        fetch("http://10.0.2.2:3000/signup", {
-            method: 'POST',
+        fetch("http://10.0.2.2:3000/login", {
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -33,18 +33,23 @@ class LoginForm extends Component {
             })
         })
             .then(updatedDate => {
-                Toast.show('Signup Successful');
+                Toast.show('login  Successful');
                 this.setState({ Loading: false })
-                props.navigation.navigate('LoginScreen')
+                // props.navigation.navigate('LoginScreen')
             })
             .then(jsonResp => {
                 
             })
             .catch(er => {
+                console.log('the error is  :',er);
                 this.setState({ Loading: false })
             })
 
 
+
+    }
+    onRedirection = () => {
+        this.props.navigation.navigate('SignupForm')
     }
 
 
@@ -114,6 +119,16 @@ class LoginForm extends Component {
             
             </View>
 
+
+            <View style={{flexDirection:"row",justifyContent:"center",alignItems:"center",marginTop:4}}>
+            <Text style={{}}>Don't have an Account ? </Text>
+            <TouchableOpacity
+            onPress={ () => this.onRedirection() }
+            >
+                <Text style={{fontWeight:'bold'}}>Sign Up here</Text>
+            </TouchableOpacity>
+            </View>
+        
         </View>
     }
 }
