@@ -54,14 +54,11 @@ app.post('/signup',(req,res) => {
 
 // https://www.youtube.com/watch?v=pzGQMwGmCnc
 app.post('/login',(req,res) => {
-    // const user = new Users({
-    //     email : req.body.email,
-    //     password : req.body.password
-    // })
 
+//     console.log('email :',req.body.email);
+//   console.log('pass : ', req.body.password);
 
-
-    Users.findOne({ email : req.body.email, password : req.body.password}, function(err,user){
+    Users.findOne ( {  email : req.body.email, password : req.body.password}, function(err,user){
         if(err)
         {
             console.log('the error for login is :',err);
@@ -75,6 +72,7 @@ app.post('/login',(req,res) => {
     } )
     .then(data =>{
         console.log("the data we got is : ",data)
+        res.json({msg:'login successful'})
         
        
     }).catch(err=>{

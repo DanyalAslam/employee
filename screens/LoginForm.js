@@ -21,9 +21,10 @@ class LoginForm extends Component {
     onLoginPress = () => {
   console.log('on login pressed');
         this.setState({ Loading: true })
+        this.props.navigation.navigate('Home')
 
         fetch("http://10.0.2.2:3000/login", {
-            method: 'GET',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -35,9 +36,13 @@ class LoginForm extends Component {
             .then(updatedDate => {
                 Toast.show('login  Successful');
                 this.setState({ Loading: false })
+                Toast.show('login  Successful'),jsonResp;
                 // props.navigation.navigate('LoginScreen')
             })
             .then(jsonResp => {
+                Toast.show('login  Successful'),jsonResp;
+                this.setState({ Loading: false })
+                this.props.navigation.navigate('CreateEmployee')
                 
             })
             .catch(er => {
