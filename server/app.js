@@ -30,7 +30,7 @@ app.get('/',(req,res)=>{
         
         res.send(data)
     }).catch(err=>{
-        console.log('ye rha error',err)
+        console.log('error : ',err)
     })
    
     
@@ -55,20 +55,17 @@ app.post('/signup',(req,res) => {
 // https://www.youtube.com/watch?v=pzGQMwGmCnc
 app.post('/login',(req,res) => {
 
-//     console.log('email :',req.body.email);
-//   console.log('pass : ', req.body.password);
 
     Users.findOne ( {  email : req.body.email, password : req.body.password}, function(err,user){
-        if(err)
-        {
-            console.log('the error for login is :',err);
-        }
+        // if(err)
+        // {
+        //     console.log('the error for login is :',err);
+        // }
 
-        if (!user)
-        {
-            console.log('No user Found');
-        }
-
+        // if (!user)
+        // {
+        //     console.log('No user Found');
+        // }
     } )
     .then(data =>{
         console.log("the data we got is : ",data)
@@ -101,7 +98,7 @@ employee.save()
     res.send("Posted")
     console.log(data)
     }).catch(err=>{
-        console.log('Not posted Data',err)
+        console.log('No Data Posted',err)
 })
 
 
@@ -114,7 +111,7 @@ app.post('/delete',(req,res)=>{
         res.send("Deleted")
         
     }).catch(err=>{
-        console.log("error h bhai")
+        console.log("error Delete")
         console.log(err)
     })
 })
@@ -136,6 +133,6 @@ app.post('/update',(req,res)=>{
 })
 
 app.listen(3000,()=>{
-    console.log('server running jani')
+    console.log('server running ')
 }) 
 
